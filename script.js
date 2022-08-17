@@ -5,5 +5,3 @@ const compMove = ['Rock', 'Paper', 'Scissors'];
 function getComputerChoice () {
     return randomMove = compMove[Math.floor(Math.random() * compMove.length)]
 }
-
-getComputerChoice();
