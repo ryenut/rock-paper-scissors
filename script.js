@@ -1,14 +1,15 @@
 // Test function to return a random string
 // 
 
-        const compMove = ['rock', 'paper', 'scissors'];
+        const value = ['rock', 'paper', 'scissors'];
                 
         function getComputerChoice() {
-            return randomMove = compMove[Math.floor(Math.random() * compMove.length)]
+            return randomMove = value[Math.floor(Math.random() * value.length)]
         }
 
         const computerSelection = getComputerChoice(); 
-        const playerSelection = 'rock';
+        const answer = prompt('Choose: Rock, Paper, or Scissors');
+        const playerSelection = answer;
         
         function singleRound (playerSelection, computerSelection) {           
             if (playerSelection === 'rock' && computerSelection === 'rock') {
