@@ -64,13 +64,20 @@
         
 
         function game() {
+
             for (i = 0; i < 5; i++) {
                 
                 const computerSelection = getComputerChoice(); 
                 const choice = prompt('Choose: Rock, Paper, or Scissors');
                 const playerSelection = choice;
 
-                console.log(playRound(playerSelection, computerSelection));
+                if (playerSelection === '' || playerSelection === null) {
+                    return 'Game over. You lost.'
+                } else {
+                    console.log(playRound(playerSelection, computerSelection));
+                }
+
+                // console.log(playRound(playerSelection, computerSelection));
                 
             
                 // if (computerScore > playerScore) {
@@ -85,11 +92,4 @@
 
         console.log(game())
 
-        // console.log(playRound(playerSelection, computerSelection));
-        // if (computerScore > playerScore) {
-
-        //     console.log('You lose! Try again.')
-        
-        // } else  {
-        //     console.log('Congratulations! You win.');
-        // }
+      
