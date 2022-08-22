@@ -48,7 +48,7 @@
 
         }
 
-            // console.log(playRound(playerSelection, computerSelection));
+             // console.log(playRound(playerSelection, computerSelection));
 
         // Write a NEW function called game(). Call the playRound function inside of this one to play a 5 round game that keeps score and reports a winner or loser at the end.
 
