@@ -1,3 +1,4 @@
+        
         const value = ['rock', 'paper', 'scissors'];
                 
         function getComputerChoice() {
@@ -39,16 +40,13 @@
 
             } else if (playerSelection.toLowerCase() === 'scissors' && computerSelection === 'rock') {
                 computerScore++;
-                return lose + 'You lose! Rock beats scissors.';
+                return lose + 'Rock beats scissors.';
 
             } else if (playerSelection.toLowerCase() === 'scissors' && computerSelection === 'paper') {
                 playerScore++;
                 return win;
             }   
         }
-
-             // console.log(playRound(playerSelection, computerSelection));
-
 
         let playerScore = 0
         let computerScore = 0
@@ -63,10 +61,11 @@
             }
         }
 
-
         function game() {
 
-            for (i = 0; i < 10; i++) {
+            let matchResult
+
+            for (i = 0; i < 7; i++) {
                 
                 const computerSelection = getComputerChoice(); 
                 const choice = prompt('Choose: Rock, Paper, or Scissors');
@@ -77,15 +76,17 @@
                 } else {
                     console.log(playRound(playerSelection, computerSelection));
                     console.log(scoreBoard(playerScore, computerScore));
-                }
-                
+                }                
+            }
+
+            if (playerScore > computerScore) {
+                return matchResult = 'Congratulations! You win!'
+            } else {
+                return matchResult = 'You lose, refresh page to try again!'
             }
         }
 
         console.log(game())
-
-        
-        // console.log(matchResult(playerScore, computerScore));
 
 
       
