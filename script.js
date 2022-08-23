@@ -1,71 +1,72 @@
-// Test function to return a random string
-// 
-
         const value = ['rock', 'paper', 'scissors'];
                 
         function getComputerChoice() {
             return randomMove = value[Math.floor(Math.random() * value.length)]
-        }
-    
+        } 
         
-        function playRound (playerSelection, computerSelection) {               
+        function playRound (playerSelection, computerSelection) {  
+
+        let win = "Player  : " + playerSelection + '\n' + "Computer: " + computerSelection + '\n' + 'You win! ';
+        let lose = "Player  : " + playerSelection + '\n' + "Computer: " + computerSelection + '\n' + 'You lose! ';
+        let tie = "Player  : " + playerSelection + '\n' + "Computer: " + computerSelection + '\n' + 'It\'s a tie.';
 
 
             if (playerSelection.toLowerCase() === 'rock' && computerSelection === 'rock') {
-                return "Player  :" + playerSelection + '\n' + "Computer:" + computerSelection + '\n' + 'It\'s a tie!';
-                
+                return tie;                
             
             } else if (playerSelection.toLowerCase() === 'rock' && computerSelection === 'paper'){
-                return "Player  :" + playerSelection + '\n' + "Computer:" + computerSelection + '\n' + 'You lose! Paper beats rock.'
-                // , computerScore++;
+                computerScore++;
+                return lose + 'Paper beats rock.';
+                
             
             } else if (playerSelection.toLowerCase() === 'rock' && computerSelection === 'scissors'){
-                return "Player  :" + playerSelection + '\n' + "Computer:" + computerSelection + '\n' + 'You win!'
-                // , playerScore++;
+                playerScore++;
+                return win;
             
             } else if (playerSelection.toLowerCase() === 'paper' && computerSelection === 'paper') {
-                return "Player  :" + playerSelection + '\n' + "Computer:" + computerSelection + '\n' + 'It\'s a tie!';
+                return tie;
             
             } else if (playerSelection.toLowerCase() === 'paper' && computerSelection === 'rock') {
-                return "Player  :" + playerSelection + '\n' + "Computer:" + computerSelection + '\n' + 'You win!'
-                // , playerScore++;
+                playerScore++;
+                return win;
             
             } else if (playerSelection.toLowerCase() === 'paper' && computerSelection === 'scissors') {
-                return "Player  :" + playerSelection + '\n' + "Computer:" + computerSelection + '\n' + 'You lose! Scissors beat paper.'
-                // , computerScore++;
+                computerScore++;
+                return lose + 'Scissors beat paper.';
             
             } else if (playerSelection.toLowerCase() === 'scissors' && computerSelection === 'scissors') {
-                return "Player  :" + playerSelection + '\n' + "Computer:" + computerSelection + '\n' + 'It\'s a tie!'
+                return tie;
 
             } else if (playerSelection.toLowerCase() === 'scissors' && computerSelection === 'rock') {
-                return "Player  :" + playerSelection + '\n' + "Computer:" + computerSelection + '\n' + 'You lose! Rock beats scissors.'
-                // , computerScore++;
+                computerScore++;
+                return lose + 'You lose! Rock beats scissors.';
 
             } else if (playerSelection.toLowerCase() === 'scissors' && computerSelection === 'paper') {
-                return "Player  :" + playerSelection + '\n' + "Computer:" + computerSelection + '\n' + 'You win!'
-                // , playerScore++;
+                playerScore++;
+                return win;
             }   
-
         }
 
              // console.log(playRound(playerSelection, computerSelection));
 
-        // Write a NEW function called game(). Call the playRound function inside of this one to play a 5 round game that keeps score and reports a winner or loser at the end.
 
-        // Use loop to iterate 5 rounds
-        // Console log the winner each round
+        let playerScore = 0
+        let computerScore = 0
 
-        // Use console.log to display results at the end of each round
-        // write a var where user/computer scores will be stored
+        function scoreBoard(playerScore, computerScore) {
 
-        // let playerScore = 0
-        // let computerScore = 0
-        //  create a function that will keep track of scores and display them
-        
+            if (playerScore > computerScore) {
+                return 'Scoreboard' + '\n' + 'Player  : ' + playerScore + '\n' + 'Computer: ' + computerScore
+
+            } else {
+                return 'Scoreboard' + '\n' + 'Player  : ' + playerScore + '\n' + 'Computer: ' + computerScore
+            }
+        }
+
 
         function game() {
 
-            for (i = 0; i < 5; i++) {
+            for (i = 0; i < 10; i++) {
                 
                 const computerSelection = getComputerChoice(); 
                 const choice = prompt('Choose: Rock, Paper, or Scissors');
@@ -75,21 +76,16 @@
                     return 'Game over. You lost.'
                 } else {
                     console.log(playRound(playerSelection, computerSelection));
+                    console.log(scoreBoard(playerScore, computerScore));
                 }
-
-                // console.log(playRound(playerSelection, computerSelection));
                 
-            
-                // if (computerScore > playerScore) {
-
-                //     console.log('You lose! Try again.')
-                    
-                //     } else  {
-                //         console.log('Congratulations! You win.');
-                //     }             
             }
         }
 
         console.log(game())
+
+        
+        // console.log(matchResult(playerScore, computerScore));
+
 
       
