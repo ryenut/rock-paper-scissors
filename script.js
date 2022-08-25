@@ -7,9 +7,9 @@
         
         function playRound (playerSelection, computerSelection) {  
 
-        let win = "Player  : " + playerSelection + '\n' + "Computer: " + computerSelection + '\n' + 'You win! ';
-        let lose = "Player  : " + playerSelection + '\n' + "Computer: " + computerSelection + '\n' + 'You lose! ';
-        let tie = "Player  : " + playerSelection + '\n' + "Computer: " + computerSelection + '\n' + 'It\'s a tie.';
+        let win = `Player  : ${playerSelection}\nComputer: ${computerSelection}` + '\n' + 'You win! ';
+        let lose = `Player  : ${playerSelection}\nComputer: ${computerSelection}` + '\n' + 'You lose! ';
+        let tie = `Player  : ${playerSelection}\nComputer: ${computerSelection}` + '\n' + 'It\'s a tie.';
 
 
             if (playerSelection.toLowerCase() === 'rock' && computerSelection === 'rock') {
@@ -54,10 +54,10 @@
         function scoreBoard(playerScore, computerScore) {
 
             if (playerScore > computerScore) {
-                return 'Scoreboard' + '\n' + 'Player  : ' + playerScore + '\n' + 'Computer: ' + computerScore
+                return `Scoreboard\nPlayer  : ${playerScore}\nComputer: ${computerScore}`
 
             } else {
-                return 'Scoreboard' + '\n' + 'Player  : ' + playerScore + '\n' + 'Computer: ' + computerScore
+                return `Scoreboard\nPlayer  : ${playerScore}\nComputer: ${computerScore}`
             }
         }
 
@@ -65,7 +65,7 @@
 
             let matchResult
 
-            for (i = 0; i < 7; i++) {
+            for (i = 0; i < 5; i++) {
                 
                 const computerSelection = getComputerChoice(); 
                 const choice = prompt('Choose: Rock, Paper, or Scissors');
