@@ -14,7 +14,7 @@ body {
 }
 
 img {
-    max-width:150px;
+    max-width:120px;
 }
 
 header {
@@ -33,10 +33,11 @@ header {
 }
 
 .rock, .paper, .scissors {
-    margin: 0px 25px;
+    margin: 0px 30px;
     padding: 18px;
-    /* border: 1px solid red; */
     border-radius: 50%;
+    background-color: #EEEEEE;
+    border: 5px solid #6E85B2;
 }
 
 .scores {
@@ -54,7 +55,7 @@ header {
 }
 
 .action {
-    margin-top: 2%;
+    margin-top: 3%;
     font-size: 2rem;
 }
 
@@ -68,15 +69,15 @@ button:hover {
 
 .win-glow {
     border: 1px solid #38E54D;
-    box-shadow: 0 0 10px #3EC70B;
+    box-shadow: 0 0 12px #3EC70B;
 }
 
 .lose-glow {
     border: 1px solid #FF1700;
-    box-shadow: 0 0 10px #FF1E1E;
+    box-shadow: 0 0 12px #FF1E1E;
 }
 
 .draw-glow {
     border: 1px solid #9CB4CC;
-    box-shadow: 0 0 10px #748DA6;
+    box-shadow: 0 0 12px #748DA6;
 }
