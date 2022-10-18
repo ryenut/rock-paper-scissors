@@ -15,7 +15,6 @@ const div = document.querySelector('.container');
 
 const img = document.createElement('img')
 img.src = 'images/reset2.png';
-
 img.style.width = "60px";
 
 const resetBtn = document.createElement('button')
