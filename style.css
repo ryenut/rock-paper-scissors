@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 16px;
+    background-color: #1B2430;
+    color: #fff;
+}
+
+img {
+    max-width:150px;
+}
+
+header {
+    text-align: center;
+    padding: 20px 0px;
+    font-size: 1.5rem;
+    background-color: #51557E;
+    color: #fff;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.rock, .paper, .scissors {
+    margin: 0px 25px;
+    padding: 18px;
+    /* border: 1px solid red; */
+    border-radius: 50%;
+}
+
+.scores {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 1.5rem;
+    margin-top: 2%;
+    margin-bottom: 50px;
+}
+
+
+.computer {
+    margin-left: 50px;
+}
+
+.action {
+    margin-top: 2%;
+    font-size: 2rem;
+}
+
+button {
+    border: none;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.win-glow {
+    border: 1px solid #38E54D;
+    box-shadow: 0 0 10px #3EC70B;
+}
+
+.lose-glow {
+    border: 1px solid #FF1700;
+    box-shadow: 0 0 10px #FF1E1E;
+}
+
+.draw-glow {
+    border: 1px solid #9CB4CC;
+    box-shadow: 0 0 10px #748DA6;
+}
