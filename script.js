@@ -1,92 +1,142 @@
+let playerScore = 0;
+let computerScore = 0;
+let endMatch = document.querySelector('.end-match')
+
+const rockBtn = document.getElementById('rock')
+const paperBtn = document.getElementById('paper')
+const scissorsBtn = document.getElementById('scissors')      
+
+
+const playerSpan = document.querySelector('.user-score')
+const computerSpan = document.querySelector('.computer-score')
+const message = document.querySelector('.action');
+const div = document.querySelector('.container');
+
+
+const img = document.createElement('img')
+img.src = 'images/reset2.png';
+
+img.style.width = "60px";
+
+const resetBtn = document.createElement('button')
+resetBtn.classList.add('play-again')
+resetBtn.appendChild(img);
+resetBtn.style.marginTop = '20px';
+resetBtn.style.backgroundColor = '#fff';
+resetBtn.style.border = '3px solid #51557E';
+resetBtn.style.borderRadius = "50%";
+resetBtn.style.boxShadow = '0 0 10px #2a37b8'
+
+
+const value = ['rock', 'paper', 'scissors'];
+
+
+function getComputerChoice() {            
+    return randomMove = value[Math.floor(Math.random() * value.length)]
+} 
+
+function makeUppercase(move) {
+    if(move === 'rock') return 'Rock';
+    if(move === 'paper') return 'Paper';
+    if (move === 'scissors') return 'Scissors';
+}
+
+function playAgain () {
+    playerScore = 0;
+    computerScore = 0;
+    playerSpan.textContent = 0;
+    computerSpan.textContent = 0;
+    rockBtn.removeAttribute("disabled", 1);
+    paperBtn.removeAttribute("disabled", 1);
+    scissorsBtn.removeAttribute("disabled", 1);
+}
+
+function win(player, computer) {
+    const playerDiv = document.getElementById(player);
+
+    playerScore++;
+    playerSpan.textContent = playerScore;
+    computerSpan.textContent = computerScore;
+    message.textContent = `${makeUppercase(player)} beats ${makeUppercase(computer)}. You win!`
+    playerDiv.classList.add('win-glow');
+    setTimeout(() => playerDiv.classList.remove('win-glow'), 250);
+
+    if (playerScore === 5) {
+        message.textContent = "Congratulations! You win 🎉"; 
+        rockBtn.setAttribute("disabled", 1);
+        paperBtn.setAttribute("disabled" ,1);
+        scissorsBtn.setAttribute("disabled", 1);
+        div.appendChild(resetBtn);
+    }
+}
+
+function lose(player, computer) {
+    const playerDiv = document.getElementById(player);
+
+    computerScore++;
+    playerSpan.textContent = playerScore;
+    computerSpan.textContent = computerScore;
+    message.textContent = `${makeUppercase(player)} beats ${makeUppercase(computer)}. You lose!`
+    playerDiv.classList.add('lose-glow');
+    setTimeout(() => playerDiv.classList.remove('lose-glow'), 250);
+    if (computerScore === 5){
+        message.textContent = "Game over. You lose 💩";
+        rockBtn.setAttribute("disabled", 1);
+        paperBtn.setAttribute("disabled" ,1);
+        scissorsBtn.setAttribute("disabled", 1);
+        div.appendChild(resetBtn);
+    }
+}
+
+function tie(player, computer) {
+    const playerDiv = document.getElementById(player);
+    message.textContent = `It\'s a draw. ${makeUppercase(player)} beats ${makeUppercase(computer)}.`;
+    playerDiv.classList.add('draw-glow');
+    setTimeout(() => playerDiv.classList.remove('draw-glow'), 250);
+}
+
+function playRound (playerSelection) {
+
+    const computerSelection = getComputerChoice(); 
+
+    if (playerSelection === 'rock' && computerSelection === 'rock') {
+        tie(playerSelection, computerSelection);
+
+    
+    } else if (playerSelection === 'rock' && computerSelection === 'paper'){
+        lose(playerSelection, computerSelection);
         
-        const value = ['rock', 'paper', 'scissors'];
-                
-        function getComputerChoice() {
-            return randomMove = value[Math.floor(Math.random() * value.length)]
-        } 
-        
-        function playRound (playerSelection, computerSelection) {  
+    
+    } else if (playerSelection === 'rock' && computerSelection === 'scissors'){
+        win(playerSelection, computerSelection);
+    
+    } else if (playerSelection === 'paper' && computerSelection === 'paper') {
+        tie(playerSelection, computerSelection);
+    
+    } else if (playerSelection === 'paper' && computerSelection === 'rock') {
+        win(playerSelection, computerSelection);
+    
+    } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
+       lose(playerSelection, computerSelection);
+    
+    } else if (playerSelection === 'scissors' && computerSelection === 'scissors') {
+        tie(playerSelection, computerSelection);
 
-        let win = `Player  : ${playerSelection}\nComputer: ${computerSelection}` + '\n' + 'You win! ';
-        let lose = `Player  : ${playerSelection}\nComputer: ${computerSelection}` + '\n' + 'You lose! ';
-        let tie = `Player  : ${playerSelection}\nComputer: ${computerSelection}` + '\n' + 'It\'s a tie.';
+    } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
+        lose(playerSelection, computerSelection);
 
-
-            if (playerSelection.toLowerCase() === 'rock' && computerSelection === 'rock') {
-                return tie;                
-            
-            } else if (playerSelection.toLowerCase() === 'rock' && computerSelection === 'paper'){
-                computerScore++;
-                return lose + 'Paper beats rock.';
-                
-            
-            } else if (playerSelection.toLowerCase() === 'rock' && computerSelection === 'scissors'){
-                playerScore++;
-                return win;
-            
-            } else if (playerSelection.toLowerCase() === 'paper' && computerSelection === 'paper') {
-                return tie;
-            
-            } else if (playerSelection.toLowerCase() === 'paper' && computerSelection === 'rock') {
-                playerScore++;
-                return win;
-            
-            } else if (playerSelection.toLowerCase() === 'paper' && computerSelection === 'scissors') {
-                computerScore++;
-                return lose + 'Scissors beat paper.';
-            
-            } else if (playerSelection.toLowerCase() === 'scissors' && computerSelection === 'scissors') {
-                return tie;
-
-            } else if (playerSelection.toLowerCase() === 'scissors' && computerSelection === 'rock') {
-                computerScore++;
-                return lose + 'Rock beats scissors.';
-
-            } else if (playerSelection.toLowerCase() === 'scissors' && computerSelection === 'paper') {
-                playerScore++;
-                return win;
-            }   
-        }
-
-        let playerScore = 0
-        let computerScore = 0
-
-        function scoreBoard(playerScore, computerScore) {
-
-            if (playerScore > computerScore) {
-                return `Scoreboard\nPlayer  : ${playerScore}\nComputer: ${computerScore}`
-
-            } else {
-                return `Scoreboard\nPlayer  : ${playerScore}\nComputer: ${computerScore}`
-            }
-        }
-
-        function game() {
-
-            let matchResult
-
-            for (i = 0; i < 5; i++) {
-                
-                const computerSelection = getComputerChoice(); 
-                const choice = prompt('Choose: Rock, Paper, or Scissors');
-                const playerSelection = choice;
-
-                if (playerSelection === '' || playerSelection === null) {
-                    return 'Game over. You lost.'
-                } else {
-                    console.log(playRound(playerSelection, computerSelection));
-                    console.log(scoreBoard(playerScore, computerScore));
-                }                
-            }
-
-            if (playerScore > computerScore) {
-                return matchResult = 'Congratulations! You win!'
-            } else {
-                return matchResult = 'You lose, refresh page to try again!'
-            }
-        }
-
-        console.log(game())
+    } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
+        win(playerSelection, computerSelection);     
+    }   
+}
 
 
-      
+rockBtn.addEventListener('click', () => playRound('rock'));        
+
+paperBtn.addEventListener('click', () => playRound('paper'));
+
+scissorsBtn.addEventListener('click', () => playRound('scissors'));        
+
+resetBtn.addEventListener('click', () => playAgain());
+
+resetBtn.addEventListener('click', () => resetBtn.remove());
