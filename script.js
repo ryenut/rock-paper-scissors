@@ -45,6 +45,7 @@ function playAgain () {
     computerScore = 0;
     playerSpan.textContent = 0;
     computerSpan.textContent = 0;
+    message.textContent = '';
     rockBtn.removeAttribute("disabled", 1);
     paperBtn.removeAttribute("disabled", 1);
     scissorsBtn.removeAttribute("disabled", 1);
@@ -65,6 +66,9 @@ function win(player, computer) {
         rockBtn.setAttribute("disabled", 1);
         paperBtn.setAttribute("disabled" ,1);
         scissorsBtn.setAttribute("disabled", 1);
+        rockBtn.classList.add('gray-out');
+        paperBtn.classList.add('gray-out');
+        scissorsBtn.classList.add('gray-out');
         div.appendChild(resetBtn);
     }
 }
@@ -83,6 +87,9 @@ function lose(player, computer) {
         rockBtn.setAttribute("disabled", 1);
         paperBtn.setAttribute("disabled" ,1);
         scissorsBtn.setAttribute("disabled", 1);
+        rockBtn.classList.add('gray-out');
+        paperBtn.classList.add('gray-out');
+        scissorsBtn.classList.add('gray-out');
         div.appendChild(resetBtn);
     }
 }

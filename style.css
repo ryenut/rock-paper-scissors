@@ -81,3 +81,8 @@ button:hover {
     border: 1px solid #9CB4CC;
     box-shadow: 0 0 12px #748DA6;
 }
+
+.gray-out {
+    background-color: gray;
+    border: 1px solid gray;
+}
